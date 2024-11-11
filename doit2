@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the base directory where folders will be created
-base_dir="./data_structure"
+base_dir="./data_structure2"
 mkdir -p "$base_dir"
 
 # Define a simple list of predefined values for faster "random" data
