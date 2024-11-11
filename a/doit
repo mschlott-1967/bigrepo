@@ -9,10 +9,7 @@ filename="${random_string}.csv"
 # Output the filename
 echo "$filename"
 
-
-
-
 for x in `shuf files | grep -v files | tail -20`
  do
- cat $x >> $filename
+ cat $x >> $1/$filename
  done
