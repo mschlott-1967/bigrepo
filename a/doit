@@ -12,7 +12,6 @@ echo "$filename"
 
 
 
-
 for x in `shuf files | grep -v files | tail -20`
  do
  cat $x >> $filename
