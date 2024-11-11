@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Set the base directory where folders will be created
+base_dir="./data_structure"
+mkdir -p "$base_dir"
+
+# Function to generate random string
+generate_random_string() {
+  tr -dc A-Za-z0-9 </dev/urandom | head -c 8
+}
+
+# Generate the folder structure and CSV files
+for i in {1..10}; do
+  outer_folder="$base_dir/$i"
+  mkdir -p "$outer_folder"
+  
+  for j in {1..10}; do
+    inner_folder="$outer_folder/$j"
+    mkdir -p "$inner_folder"
+    
+    # Generate a unique filename with path and random string
+    random_string=$(generate_random_string)
+    filename="$inner_folder/${i}_${j}_${random_string}.csv"
+    
+    # Generate the CSV file with 6 columns and 10,000 rows of random data
+    {
+      echo "Column1,Column2,Column3,Column4,Column5,Column6"  # CSV header
+      for _ in {1..10000}; do
+        # Generate a row of 6 random numbers or strings
+        echo "$(generate_random_string),$(generate_random_string),$(generate_random_string),$((RANDOM)),${RANDOM},$(generate_random_string)"
+      done
+    } > "$filename"
+    
+    echo "Created file: $filename"
+  done
+done
+
+echo "All files have been created."
+

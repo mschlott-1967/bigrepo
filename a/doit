@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Generate a random 10-character alphanumeric string
+random_string=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 10)
+
+# Append .csv to the random string
+filename="${random_string}.csv"
+
+# Output the filename
+echo "$filename"
+
+
+
+
+
+for x in `shuf files | grep -v files | tail -20`
+ do
+ cat $x >> $filename
+ done
