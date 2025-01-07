@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Set the base directory where folders will be created
+base_dir="./data_structure4"
+mkdir -p "$base_dir"
+
+# Define a simple list of predefined values for faster "random" data
+#values=("A" "B" "C" "D" "E" "F" "G" "H" "I" "J")
+values=(ZTo82NvpaYJlnkXFUAUR sFftqHg90CFLDLHcTmz5 P6uOJyHXvoyf2pnJJYli 9qqa1EHCL0V2QsXY26uO 0WLb31bfH44oShDy7hSU dUeFHuSahTi65mNcSbKW KjjNaT0Rc7LP7hygbKjO NWiE4eS9ojmADhvSawwS LzOEJTPxO0iNgoUXwP97 sHhhdbzVyetr3F0lodCN NzBiDUK6rZSJlWpaLZ3Y 9rmVT5JWj4AjT6S8DGu1 VrWQaxWnVD50BF5DtP8p qrxrQG3JfwuGBoeXs5Fc O5njAiDulHT55EiGBp3I 5SSuLldXoelSLKIh9SEx Ww8S35Gs9NEm8UKa3akZ QHrAEcTqrGoWqa09eSth nX8QT5kWgLI6gw2pAsEy DYWFNXjNI97q0BKoXAr8 Lf5JyNAh6NNHT5obGzML Rofb1uz0vQi49HWxph4K eotvHMMPKfkS2BIjXELt 67l1KbyrdD3lhRfg7k4e Spixpj1pktUZOru5lwfb mxSRWXFar3CM4Shd0lUW L21I1DleVHB5c3CaHibH EJKOko0XEyA42MZke1tP BzLo2q66KJJiAJABiByI WRCxenqSQsYu98BHTpyr 3DRya6R01XLTHEBpXiSn lkh4ZV8KDgwprMeCUpQ9 4CWhOckz9MzVM1lqd311 RviFZrwvb3Soqsdnl1pW 9nLhOdsQLBJaoq0xqb3f O8GxACBiYiMpMkqpTV3R 4BymVeGqHqHOdy6cKvqh Ar5rFif92zyQ9RY5XXjA 9kzuo385P9IiuuJtZahW gms51GtZohilglDl4KBU Cbz2jlwoX5tyHpv76zPc FOIBJRSrIfFpivRTpOyR V1ERZaIyG3KK8qQG6mhE GbCVvLUyPrXjquPiwU7w IZl4imll5T7N19OKBwxf 072FumHiZZ0k5BQ6ao8w 43peCISizkfZTnCdroWS yI2OSHbY0UXwtMSBx9bJ P4TrDwbe3fnqZ4MDjrkU dMB3xLmp53YeNY6f0jtV SQNPmRxAPgubUj8hpsgr i7c0Vq1FZyZVBF2LOaCB JaNhY2xP9UMa69IZQgak 7A3E2dwNeHtDGUYIbTio BoQAq56nc7ctvbwUs3ml QHVaevpBp8VibHj1xh1a 1JNZ1ncGMirZcU0W37Fl UJOdkuyf8ziVhCzyNHE2 CTXbUpsGs10hh2vQXnMv xFD9AYZryDIaqIsyNGhW SOOAsI5AOCa0xhAob3jw l9iOgDsrq0j53k3OeTXi iIGU8XEhp1izYoh5n78n opMcv7rS8eiGV6zU3lDL YLyXCS8eSZHChf8y2PhW isod66ZeajeGfXnbteeS wT7HmzrPvOiwwtvRGYiZ NQuYL6TJBPnDemZFW4Li 42xrwtgLpsWHsi1JZosR uq6CqtZSnyCGdUFeNuBR guyd31Pt5WHxsp8JuF8Z f1bG67b3xJSLsgoKk9af kRVXCbxRDGYSZs1lHTbD 5gsfdS5yeTYrLR2U7QVJ OatzosFnj8RkO3lY1ewf MROvaveS3WjX2Cgp0oJL NjEtfkHCL8RLf8QuwpTL q5QAXy7dJ1Bz2pBRJVr0 9hWVG6A7MqrUk9letLN8 wHW7aAZTJuc6sUr7vhJk dLOAT1cUwNYEjc9NE5gO 4qZ368yqdYU1Ur5DJtn3 FyMczdfN2Tu2pi2G9yDC OOeN9MCKSdmu5Nv1iL9O eJZkMKmzmbVERvlekjjk BZdlJGgJhbhCI7nVzQoD CsGNbYxKYR8p64n0SbUx Pz69dAgoifPs0NR23dQm gC15xkvkbXDM1uPw8WcN qehvdWs3j5WwKfH6iGKA 0djliwl2AisrVG3FXih7 Me6RXteKvWXLIT6TTjAM dBPDblL6w6JwMP8dz3Vg kZmBhcInnncHLwkzZAyz DV8RA3KPRfnX4MaIP8MF Cn03WfYJMeVC3kpNn0B9 HKT8YOwSdlbiYoZQ9j2n WIyLRA26psMKX7dy0cjW DBNF0MuKyyrZ8E5XdilE qz1ZEsnxMVGYi0U8AOTL)
+
+# Generate the folder structure and CSV files
+for i in {1..10}; do
+  outer_folder="$base_dir/$i"
+  mkdir -p "$outer_folder"
+  
+  for j in {1..10}; do
+    inner_folder="$outer_folder/$j"
+    mkdir -p "$inner_folder"
+    
+    # Construct a filename based on the path
+    filename="$inner_folder/${i}_${j}_file.csv"
+    
+    # Generate the CSV file with a fixed pattern
+    {
+      echo "Column1,Column2,Column3,Column4,Column5,Column6"  # CSV header
+      for row in {1..10000}; do
+        # Cycle through `values` for predictable, quick data
+        echo "${values[$((row % 10))]},${values[$((row % 10))]},${values[$((row % 10))]},$((row % 100)),$((row % 100)),$((row % 100))"
+      done
+    } > "$filename"
+    
+    echo "Created file: $filename"
+  done
+done
+
+echo "All files have been created.
+

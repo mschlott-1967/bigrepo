@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Set the base directory where folders will be created
+base_dir="./data_structure3"
+mkdir -p "$base_dir"
+
+# Define a simple list of predefined values for faster "random" data
+values=("A" "B" "C" "D" "E" "F" "G" "H" "I" "J")
+
+# Generate the folder structure and CSV files
+for i in {1..10}; do
+  outer_folder="$base_dir/$i"
+  mkdir -p "$outer_folder"
+  
+  for j in {1..10}; do
+    inner_folder="$outer_folder/$j"
+    mkdir -p "$inner_folder"
+    
+    # Construct a filename based on the path
+    filename="$inner_folder/${i}_${j}_file.csv"
+    
+    # Generate the CSV file with a fixed pattern
+    {
+      echo "Column1,Column2,Column3,Column4,Column5,Column6"  # CSV header
+      for row in {1..10000}; do
+        # Cycle through `values` for predictable, quick data
+        echo "${values[$((row % 10))]},${values[$((row % 10))]},${values[$((row % 10))]},$((row % 100)),$((row % 100)),$((row % 100))"
+      done
+    } > "$filename"
+    
+    echo "Created file: $filename"
+  done
+done
+
+echo "All files have been created.
+
